@@ -5,28 +5,28 @@ node{
     stage('Run Test Unit'){
         ansiblePlaybook(
             colorized: true,
-            playbook: './infrastructure/test.yml'
+            playbook: 'infrastructure/test.yml'
         )
     }
 
     stage('Build Artefact'){
         ansiblePlaybook(
             colorized: true,
-            playbook: './infrastructure/build.yml'
+            playbook: 'infrastructure/build.yml'
         )
     }
 
     stage('Deploy Artefact'){
         ansiblePlaybook(
             colorized: true,
-            playbook: './infrastructure/deploy.yml'
+            playbook: 'infrastructure/deploy.yml'
         )
     }
 
     stage('Settings network'){
         ansiblePlaybook(
             colorized: true,
-            playbook: './infrastructure/network.yml'
+            playbook: 'infrastructure/network.yml'
         )
     }
 }
