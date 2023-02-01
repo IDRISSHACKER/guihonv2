@@ -7,10 +7,10 @@ export default defineConfig({
   build: {
     target: 'esnext',
     polyfillDynamicImport: false,
-    watch: false
   },
   test: {
     globals: true,
+    watch: false,
     // solid needs to be inline to work around
     // a resolution issue in vitest
     // And solid-testing-library needs to be here so that the 'hydrate'
