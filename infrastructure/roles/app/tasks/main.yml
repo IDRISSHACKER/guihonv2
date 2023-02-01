@@ -1,58 +1,17 @@
 ---
-- name: Start docker
-  service:
-    name: "docker"
-    state: started
+- name: Get project from git
+  git:
+    repo: {{app_repository}}
+    dest: {{app_destination}}
+    clone: true
 
-- name: pulling image
-  docker_image:
-    name: node
-    tag: latest
-    source: pull
+- name: Install globally quasar
+  shell:
+    cmd: npm i -g @quasar/cli
+    shdir: {{app_destination}}
 
-- name: Obtaining project from github
-  git: clone=true repo={{ app_repository }} dest={{  app_destination  }}
-
-
-- name: Show dir
-  shell: 
-    chdir: "~/{{ app_destination }}" 
-    cmd: ls
-
-- name: install packages
-  shell: 
-    chdir: "~/{{ app_destination }}" 
-    cmd: "npm install"
-
-- name: Build app
-  shell: 
-    chdir: "~/{{ app_destination }}" 
-    cmd: "npm run build"
-
-- name: start app inside a container
-  docker_container:
-    name: "{{ container_name }}"
-    image: node:latest
-    state: started
-    exposed_ports:
-      - "{{ container_port }}"
-    ports:
-      - "{{ container_port }}:{{ app_port }}"
-    volumes:
-      - "~/{{ app_destination }}:/app"
-    working_dir: /app
-    command: "npm run start:prod"
-  register: app_status
-
-- name: show container status
-  debug: var=app_status
-
-
-- name: get container logs
-  shell: 
-    cmd: "docker logs {{ container_name }}" 
-  register: container_logs
-
-- name: show container status
-  debug: var=container_logs
+- name: Install dependancies
+  shell:
+    cmd: npm Install
+    chdir: {{app_destination}}
 ...

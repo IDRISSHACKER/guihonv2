@@ -1,0 +1,14 @@
+---
+- hosts: test
+  become: yes
+  vars:
+    app_repository: "https://github.com/IDRISSHACKER/guihonv2.git"
+    app_destination: "guihon"
+    app_port: 80
+
+  roles:
+    - app
+    - firewall
+    - sys
+
+...
