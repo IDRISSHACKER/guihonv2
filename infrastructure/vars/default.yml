@@ -1,3 +1,4 @@
 app_repository: "https://github.com/IDRISSHACKER/guihonv2.git"
 app_destination: "guihon"
 prod_destination: "/var/www/guihon"
+app_port: 80
