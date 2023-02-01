@@ -1,17 +1,17 @@
 ---
 - name: Get project from git
   git:
-    repo: {{ app_repository }}
-    dest: {{ app_destination }}
+    repo: "{{ app_repository }}"
+    dest: "{{ app_destination }}"
     clone: true
 
 - name: Install globally quasar
   shell:
     cmd: npm i -g @quasar/cli
-    shdir: {{ app_destination }}
+    shdir: "{{ app_destination }}"
 
 - name: Install dependancies
   shell:
     cmd: npm Install
-    chdir: {{ app_destination }}
+    chdir: "{{ app_destination }}"
 ...
