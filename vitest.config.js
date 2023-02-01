@@ -7,6 +7,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
     polyfillDynamicImport: false,
+    watch: false
   },
   test: {
     globals: true,
