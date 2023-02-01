@@ -3,6 +3,13 @@ node{
         git 'https://github.com/IDRISSHACKER/guihonv2.git'
     }
 
+      stage('Config ENV'){
+          ansiblePlaybook(
+              colorized: true,
+              playbook: 'infrastructure/init.yml'
+          )
+      }
+
     stage('Run Test Unit'){
         ansiblePlaybook(
             colorized: true,
