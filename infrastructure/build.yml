@@ -5,6 +5,5 @@
     - "vars/default.yml"
 
   roles:
-    - app
-    - tests
+    - build
 ...

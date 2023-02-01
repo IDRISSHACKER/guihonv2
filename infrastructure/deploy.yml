@@ -1,14 +1,9 @@
 ---
 - hosts: test
   become: yes
-  vars:
-    app_repository: "https://github.com/IDRISSHACKER/guihonv2.git"
-    app_destination: "guihon"
-    app_port: 80
+  vars_files:
+    - "vars/default.yml"
 
   roles:
-    - app
-    - firewall
-    - sys
-
+    - deploy
 ...

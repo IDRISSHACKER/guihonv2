@@ -5,6 +5,6 @@
     - "vars/default.yml"
 
   roles:
-    - app
-    - tests
+    - firewall
+    - sys
 ...
