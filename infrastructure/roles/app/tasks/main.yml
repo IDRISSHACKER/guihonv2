@@ -11,6 +11,6 @@
 
 - name: Install dependancies
   shell:
-    cmd: npm Install
+    cmd: npm install
     chdir: "{{ app_destination }}"
 ...
