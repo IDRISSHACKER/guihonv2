@@ -8,7 +8,6 @@
 - name: Install globally quasar
   shell:
     cmd: npm i -g @quasar/cli
-    shdir: "{{ app_destination }}"
 
 - name: Install dependancies
   shell:
